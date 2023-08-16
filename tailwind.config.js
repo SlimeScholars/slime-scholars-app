@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        hotpink: "#F649DA",
+        white: "#FFFEFA",
+      },
+    },
   },
   plugins: [],
 };
