@@ -36,155 +36,139 @@ export default function Login() {
     });
   });
   return (
-    <KeyboardAvoidingView
-      className="flex-1"
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    <View
+      className="bg-white h-screen -top-2"
+      style={{
+        flex: 1,
+      }}
     >
       <StatusBar style="light" backgroundColor="#F649DA" />
-      <View className="bg-hotpink h-48 flex-row justify-center items-end z-50 pt-10">
+      <View
+        className="flex justify-center items-center w-screen overflow-x-hidden"
+        style={{
+          flex: 3,
+        }}
+      >
         <Image
-          source={require("@Assets/icons/slime-login.png")}
+          source={require("@Assets/graphics/login-banner.png")}
           style={{
-            width: 120,
-            height: 120,
-            zIndex: 50,
+            width: 415,
+            height: 346,
           }}
         />
       </View>
-      <View className="rounded-full bg-hotpink h-[150px] w-[150px] scale-x-[6] -right-72 -top-28 z-30" />
-      <LinearGradient
-        colors={["#FF54E3", "#FF96EE"]}
-        className="rounded-full bg-transparent h-[150px] w-[150px] scale-x-[6] -right-72 -top-60 mt-1 z-20"
-      />
-      <LinearGradient
-        colors={["#FF94EE", "#FFCBF7"]}
-        className="rounded-full bg-transparent h-[150px] w-[150px] scale-x-[6] -right-72 -top-96 mt-5 z-10"
-      />
-      <LinearGradient
-        colors={["#FFCDF7", "#FFF4FD"]}
-        className="rounded-full bg-transparent h-[150px] w-[150px] scale-x-[6] -right-72 -top-96 -mt-[122px] z-0"
-      />
       <View
-        className="rounded-full bg-white h-[150px] w-[150px] scale-x-[6] -right-72 -top-96 -mt-[151px] -z-10 -mb-[420px]"
+        className="flex justify-start"
         style={{
-          shadowOffset: { width: 0, height: 4 },
-          shadowOpacity: 1,
-          shadowRadius: 20,
-          elevation: 5,
-          shadowColor: "rgba(173.29, 5.40, 176.72, 0.25)",
-        }}
-      />
-      <Text
-        className="mt-20 text-center text-4xl font-bold text-hotpink"
-        style={{
-          fontFamily: "Nunito-Sans-Black",
+          flex: 3,
         }}
       >
-        Log in
-      </Text>
-      <View className="w-full px-10 flex flex-col items-start justify-start">
-        <TextInput
-          className="mt-6 w-full mx-auto pb-2 border-b-[0.5px] border-grey text-grey text-lg"
-          placeholder="Username"
+        <Text
+          className="text-center text-4xl font-bold text-hotpink"
           style={{
-            fontFamily: "Nunito-Sans-Regular",
+            fontFamily: "Nunito-Sans-Black",
           }}
-          onChangeText={(text) => setUsername(text)}
-          textContentType="username"
-        />
-        <View className="relative w-full mt-8 pb-2 border-b-[0.5px] border-grey flex-row justify-between items-center">
+        >
+          Log in
+        </Text>
+        <View className="w-full px-10 flex flex-col items-start justify-start">
           <TextInput
-            className="w-full mx-auto text-grey text-lg"
-            placeholder="Password"
+            className="mt-6 w-full mx-auto pb-2 border-b-[0.5px] border-grey text-grey text-lg"
+            placeholder="Username"
             style={{
               fontFamily: "Nunito-Sans-Regular",
             }}
-            onChangeText={(text) => setPassword(text)}
-            textContentType="password"
-            secureTextEntry={!passwordVisible}
+            onChangeText={(text) => setUsername(text)}
+            textContentType="username"
           />
+          <View className="relative w-full mt-8 pb-2 border-b-[0.5px] border-grey flex-row justify-between items-center">
+            <TextInput
+              className="w-full mx-auto text-grey text-lg"
+              placeholder="Password"
+              style={{
+                fontFamily: "Nunito-Sans-Regular",
+              }}
+              onChangeText={(text) => setPassword(text)}
+              textContentType="password"
+              secureTextEntry={!passwordVisible}
+            />
+            <TouchableOpacity
+              onPress={() => {
+                setPasswordVisible(!passwordVisible);
+              }}
+              className="absolute right-0 bottom-2"
+            >
+              {passwordVisible ? (
+                <Ionicons name="eye-off" size={24} color="#A4A1A1" />
+              ) : (
+                <Ionicons name="eye" size={24} color="#A4A1A1" />
+              )}
+            </TouchableOpacity>
+          </View>
           <TouchableOpacity
-            onPress={() => {
-              setPasswordVisible(!passwordVisible);
-            }}
-            className="absolute right-0 bottom-2"
+            className="mt-8 w-full flex-row justify-start items-center mx-auto py-3 mb-3"
+            onPress={login}
           >
-            {passwordVisible ? (
-              <Ionicons name="eye-off" size={24} color="#A4A1A1" />
-            ) : (
-              <Ionicons name="eye" size={24} color="#A4A1A1" />
-            )}
+            <Text
+              className="text-center text-grey text-2xl mr-1 mb-0.5"
+              style={{
+                fontFamily: "Nunito-Sans-ExtraBold",
+              }}
+            >
+              Sign in
+            </Text>
+            <Entypo name="arrow-right" size={28} color="#F649DA" />
           </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          className="mt-8 w-full flex-row justify-start items-center mx-auto py-3 mb-3"
-          onPress={login}
-        >
-          <Text
-            className="text-center text-grey text-2xl mr-1 mb-0.5"
-            style={{
-              fontFamily: "Nunito-Sans-ExtraBold",
-            }}
-          >
-            Sign in
-          </Text>
-          <Entypo name="arrow-right" size={28} color="#F649DA" />
-        </TouchableOpacity>
       </View>
       <View
-        className="rounded-full bg-white h-[150px] w-[150px] scale-x-[6] -right-72"
+        className="flex justify-center items-center bg-hotpink w-screen overflow-x-hidden -z-10"
         style={{
-          shadowOffset: { width: 0, height: 4 },
-          shadowOpacity: 1,
-          shadowRadius: 20,
-          elevation: 5,
-          shadowColor: "rgba(173.29, 5.40, 176.72, 0.25)",
+          flex: 1,
         }}
-      />
-
-      <LinearGradient
-        colors={["#FFF4FD", "#FFCDF7"]}
-        className="rounded-full bg-transparent h-[150px] w-[150px] scale-x-[6] -right-72 -top-[150px]"
-      />
-      <LinearGradient
-        colors={["#FFCBF7", "#FF94EE"]}
-        className="rounded-full bg-transparent h-[150px] w-[150px] scale-x-[6] -right-72 -top-[295px] mt-5"
-      />
-      <LinearGradient
-        colors={["#FF96EE", "#FF54E3"]}
-        className="rounded-full bg-transparent h-[150px] w-[150px] scale-x-[6] -right-72 -top-96 -mt-9"
-      />
-      <View className="rounded-full bg-hotpink h-[150px] w-[150px] scale-x-[6] -right-72 -top-96 -mt-[123px]" />
-      <View className="bg-hotpink h-56 -top-96 -mt-24 px-10 w-full flex-row justify-between items-start">
-        <TouchableOpacity
-          onPress={() => {
-            router.push("forgot-password");
+      >
+        <Image
+          source={require("@Assets/graphics/login-footer.png")}
+          style={{
+            width: 415,
+            height: 219,
+            zIndex: 50,
+            top: -40,
           }}
-        >
-          <Text
-            className="text-white text-base"
-            style={{
-              fontFamily: "Nunito-Sans-Bold",
+        />
+        <View className="w-full px-10 z-50 absolute bottom-10 flex flex-row justify-between items-center">
+          <TouchableOpacity
+            className="flex-row justify-center items-center"
+            onPress={() => {
+              router.replace("forgot-password");
             }}
           >
-            Forgot password
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {
-            router.push("signup");
-          }}
-        >
-          <Text
-            className="text-white text-base"
-            style={{
-              fontFamily: "Nunito-Sans-Bold",
+            <Text
+              className="text-center text-white text-lg"
+              style={{
+                fontFamily: "Nunito-Sans-Bold",
+              }}
+            >
+              Forgot password
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            className="flex-row justify-center items-center"
+            onPress={() => {
+              router.replace("signup");
             }}
           >
-            Sign up
-          </Text>
-        </TouchableOpacity>
+            <Text
+              className="text-center text-white text-lg"
+              style={{
+                fontFamily: "Nunito-Sans-Bold",
+              }}
+            >
+              Sign up
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </KeyboardAvoidingView>
+    </View>
   );
 }
