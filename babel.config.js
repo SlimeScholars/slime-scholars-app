@@ -9,10 +9,10 @@ module.exports = function (api) {
         "module-resolver",
         {
           alias: {
-            assets: "./assets",
-            components: "./components",
-            utils: "./utils",
-            constants: "./constants",
+            "@Assets": "./assets",
+            "@Components": "./components",
+            "@Utils": "./utils",
+            "@Constants": "./constants",
           },
         },
       ],

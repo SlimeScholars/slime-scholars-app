@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         hotpink: "#F649DA",
         white: "#FFFEFA",
+        grey: "#A4A1A1",
       },
     },
   },
