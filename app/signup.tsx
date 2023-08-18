@@ -8,18 +8,26 @@ import {
   Image,
   TextInput,
 } from "react-native";
+
 import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import Storage from "@Utils/storage";
 import { Entypo, Ionicons } from "@expo/vector-icons";
 
+import { styled } from 'nativewind'
+
+const StyledView = styled(View)
+const StyledText = styled(Text)
+const StyledTouchableOpacity = styled(TouchableOpacity)
+const StyledTextInput = styled(TextInput)
+
 export default function Signup() {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [username, setUsername] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
 
   const signup = async () => {
     console.log(username, email, password, confirmPassword);
@@ -37,15 +45,16 @@ export default function Signup() {
       }
     });
   });
+
   return (
-    <View
+    <StyledView
       className="bg-white h-screen -top-2"
       style={{
         flex: 1,
       }}
     >
       <StatusBar style="light" backgroundColor="#F649DA" />
-      <View
+      <StyledView
         className="flex justify-center items-center w-screen overflow-x-hidden"
         style={{
           flex: 3,
@@ -58,23 +67,23 @@ export default function Signup() {
             height: 346,
           }}
         />
-      </View>
-      <View
+      </StyledView>
+      <StyledView
         className="flex justify-start"
         style={{
           flex: 3,
         }}
       >
-        <Text
+        <StyledText
           className="text-center text-4xl font-bold text-hotpink"
           style={{
             fontFamily: "Nunito-Sans-Black",
           }}
         >
           Sign up
-        </Text>
-        <View className="w-full px-10 flex flex-col items-start justify-evenly space-y-3">
-          <TextInput
+        </StyledText>
+        <StyledView className="w-full px-10 flex flex-col items-start justify-evenly space-y-3">
+          <StyledTextInput
             className="w-full mx-auto pb-2 border-b-[0.5px] border-grey text-grey text-base"
             placeholder="Username"
             style={{
@@ -83,7 +92,7 @@ export default function Signup() {
             onChangeText={(text) => setUsername(text)}
             textContentType="username"
           />
-          <TextInput
+          <StyledTextInput
             className="w-full mx-auto pb-2 border-b-[0.5px] border-grey text-grey text-base"
             placeholder="Email"
             style={{
@@ -91,8 +100,8 @@ export default function Signup() {
             }}
             onChangeText={(text) => setEmail(text)}
           />
-          <View className="relative w-full pb-2 border-b-[0.5px] border-grey flex-row justify-between items-center">
-            <TextInput
+          <StyledView className="relative w-full pb-2 border-b-[0.5px] border-grey flex-row justify-between items-center">
+            <StyledTextInput
               className="w-full mx-auto text-grey text-base"
               placeholder="Password"
               style={{
@@ -102,7 +111,7 @@ export default function Signup() {
               textContentType="password"
               secureTextEntry={!passwordVisible}
             />
-            <TouchableOpacity
+            <StyledTouchableOpacity
               onPress={() => {
                 setPasswordVisible(!passwordVisible);
               }}
@@ -113,10 +122,10 @@ export default function Signup() {
               ) : (
                 <Ionicons name="eye" size={24} color="#A4A1A1" />
               )}
-            </TouchableOpacity>
-          </View>
-          <View className="relative w-full pb-2 border-b-[0.5px] border-grey flex-row justify-between items-center">
-            <TextInput
+            </StyledTouchableOpacity>
+          </StyledView>
+          <StyledView className="relative w-full pb-2 border-b-[0.5px] border-grey flex-row justify-between items-center">
+            <StyledTextInput
               className="w-full mx-auto text-grey text-base"
               placeholder="Confirm password"
               style={{
@@ -126,7 +135,7 @@ export default function Signup() {
               textContentType="password"
               secureTextEntry={!passwordVisible}
             />
-            <TouchableOpacity
+            <StyledTouchableOpacity
               onPress={() => {
                 setPasswordVisible(!passwordVisible);
               }}
@@ -137,25 +146,25 @@ export default function Signup() {
               ) : (
                 <Ionicons name="eye" size={24} color="#A4A1A1" />
               )}
-            </TouchableOpacity>
-          </View>
-          <TouchableOpacity
+            </StyledTouchableOpacity>
+          </StyledView>
+          <StyledTouchableOpacity
             className="w-full flex-row justify-start items-center mx-auto py-3 mb-3"
             onPress={signup}
           >
-            <Text
+            <StyledText
               className="text-center text-grey text-2xl mr-1 mb-0.5"
               style={{
                 fontFamily: "Nunito-Sans-ExtraBold",
               }}
             >
               Register
-            </Text>
+            </StyledText>
             <Entypo name="arrow-right" size={28} color="#F649DA" />
-          </TouchableOpacity>
-        </View>
-      </View>
-      <View
+          </StyledTouchableOpacity>
+        </StyledView>
+      </StyledView>
+      <StyledView
         className="flex justify-center items-center bg-hotpink w-screen overflow-x-hidden -z-10"
         style={{
           flex: 1,
@@ -170,24 +179,24 @@ export default function Signup() {
             top: -40,
           }}
         />
-        <View className="w-full px-10 z-50 absolute bottom-10 flex flex-row justify-between items-center">
-          <TouchableOpacity
+        <StyledView className="w-full px-10 z-50 absolute bottom-10 flex flex-row justify-between items-center">
+          <StyledTouchableOpacity
             className="flex-row justify-center items-center"
             onPress={() => {
               router.replace("");
             }}
           >
-            <Text
+            <StyledText
               className="text-center text-white text-lg"
               style={{
                 fontFamily: "Nunito-Sans-Bold",
               }}
             >
               Log in
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </View>
+            </StyledText>
+          </StyledTouchableOpacity>
+        </StyledView>
+      </StyledView>
+    </StyledView >
   );
 }
