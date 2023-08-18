@@ -15,13 +15,6 @@ import { router } from "expo-router";
 import Storage from "@Utils/storage";
 import { Entypo, Ionicons } from "@expo/vector-icons";
 
-import { styled } from 'nativewind'
-
-const StyledView = styled(View)
-const StyledText = styled(Text)
-const StyledTouchableOpacity = styled(TouchableOpacity)
-const StyledTextInput = styled(TextInput)
-
 export default function Signup() {
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -47,14 +40,14 @@ export default function Signup() {
   });
 
   return (
-    <StyledView
+    <View
       className="bg-white h-screen -top-2"
       style={{
         flex: 1,
       }}
     >
       <StatusBar style="light" backgroundColor="#F649DA" />
-      <StyledView
+      <View
         className="flex justify-center items-center w-screen overflow-x-hidden"
         style={{
           flex: 3,
@@ -67,23 +60,23 @@ export default function Signup() {
             height: 346,
           }}
         />
-      </StyledView>
-      <StyledView
+      </View>
+      <View
         className="flex justify-start"
         style={{
           flex: 3,
         }}
       >
-        <StyledText
+        <Text
           className="text-center text-4xl font-bold text-hotpink"
           style={{
             fontFamily: "Nunito-Sans-Black",
           }}
         >
           Sign up
-        </StyledText>
-        <StyledView className="w-full px-10 flex flex-col items-start justify-evenly space-y-3">
-          <StyledTextInput
+        </Text>
+        <View className="w-full px-10 flex flex-col items-start justify-evenly space-y-3">
+          <TextInput
             className="w-full mx-auto pb-2 border-b-[0.5px] border-grey text-grey text-base"
             placeholder="Username"
             style={{
@@ -92,7 +85,7 @@ export default function Signup() {
             onChangeText={(text) => setUsername(text)}
             textContentType="username"
           />
-          <StyledTextInput
+          <TextInput
             className="w-full mx-auto pb-2 border-b-[0.5px] border-grey text-grey text-base"
             placeholder="Email"
             style={{
@@ -100,8 +93,8 @@ export default function Signup() {
             }}
             onChangeText={(text) => setEmail(text)}
           />
-          <StyledView className="relative w-full pb-2 border-b-[0.5px] border-grey flex-row justify-between items-center">
-            <StyledTextInput
+          <View className="relative w-full pb-2 border-b-[0.5px] border-grey flex-row justify-between items-center">
+            <TextInput
               className="w-full mx-auto text-grey text-base"
               placeholder="Password"
               style={{
@@ -111,7 +104,7 @@ export default function Signup() {
               textContentType="password"
               secureTextEntry={!passwordVisible}
             />
-            <StyledTouchableOpacity
+            <TouchableOpacity
               onPress={() => {
                 setPasswordVisible(!passwordVisible);
               }}
@@ -122,10 +115,10 @@ export default function Signup() {
               ) : (
                 <Ionicons name="eye" size={24} color="#A4A1A1" />
               )}
-            </StyledTouchableOpacity>
-          </StyledView>
-          <StyledView className="relative w-full pb-2 border-b-[0.5px] border-grey flex-row justify-between items-center">
-            <StyledTextInput
+            </TouchableOpacity>
+          </View>
+          <View className="relative w-full pb-2 border-b-[0.5px] border-grey flex-row justify-between items-center">
+            <TextInput
               className="w-full mx-auto text-grey text-base"
               placeholder="Confirm password"
               style={{
@@ -135,7 +128,7 @@ export default function Signup() {
               textContentType="password"
               secureTextEntry={!passwordVisible}
             />
-            <StyledTouchableOpacity
+            <TouchableOpacity
               onPress={() => {
                 setPasswordVisible(!passwordVisible);
               }}
@@ -146,25 +139,25 @@ export default function Signup() {
               ) : (
                 <Ionicons name="eye" size={24} color="#A4A1A1" />
               )}
-            </StyledTouchableOpacity>
-          </StyledView>
-          <StyledTouchableOpacity
+            </TouchableOpacity>
+          </View>
+          <TouchableOpacity
             className="w-full flex-row justify-start items-center mx-auto py-3 mb-3"
             onPress={signup}
           >
-            <StyledText
+            <Text
               className="text-center text-grey text-2xl mr-1 mb-0.5"
               style={{
                 fontFamily: "Nunito-Sans-ExtraBold",
               }}
             >
               Register
-            </StyledText>
+            </Text>
             <Entypo name="arrow-right" size={28} color="#F649DA" />
-          </StyledTouchableOpacity>
-        </StyledView>
-      </StyledView>
-      <StyledView
+          </TouchableOpacity>
+        </View>
+      </View>
+      <View
         className="flex justify-center items-center bg-hotpink w-screen overflow-x-hidden -z-10"
         style={{
           flex: 1,
@@ -179,24 +172,24 @@ export default function Signup() {
             top: -40,
           }}
         />
-        <StyledView className="w-full px-10 z-50 absolute bottom-10 flex flex-row justify-between items-center">
-          <StyledTouchableOpacity
+        <View className="w-full px-10 z-50 absolute bottom-10 flex flex-row justify-between items-center">
+          <TouchableOpacity
             className="flex-row justify-center items-center"
             onPress={() => {
               router.replace("");
             }}
           >
-            <StyledText
+            <Text
               className="text-center text-white text-lg"
               style={{
                 fontFamily: "Nunito-Sans-Bold",
               }}
             >
               Log in
-            </StyledText>
-          </StyledTouchableOpacity>
-        </StyledView>
-      </StyledView>
-    </StyledView >
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </View >
   );
 }

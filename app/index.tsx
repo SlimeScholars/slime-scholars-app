@@ -15,13 +15,6 @@ import { router } from "expo-router";
 import Storage from "@Utils/storage";
 import { Entypo, Ionicons } from "@expo/vector-icons";
 
-import { styled } from 'nativewind'
-
-const StyledView = styled(View)
-const StyledText = styled(Text)
-const StyledTouchableOpacity = styled(TouchableOpacity)
-const StyledTextInput = styled(TextInput)
-
 export default function Login() {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -45,14 +38,14 @@ export default function Login() {
   });
 
   return (
-    <StyledView
+    <View
       className="bg-white h-screen -top-2"
       style={{
         flex: 1,
       }}
     >
       <StatusBar style="light" backgroundColor="#F649DA" />
-      <StyledView
+      <View
         className="flex justify-center items-center w-screen overflow-x-hidden"
         style={{
           flex: 3,
@@ -65,23 +58,23 @@ export default function Login() {
             height: 346,
           }}
         />
-      </StyledView>
-      <StyledView
+      </View>
+      <View
         className="flex justify-start"
         style={{
           flex: 3,
         }}
       >
-        <StyledText
+        <Text
           className="text-center text-4xl font-bold text-hotpink"
           style={{
             fontFamily: "Nunito-Sans-Black",
           }}
         >
           Log in
-        </StyledText>
-        <StyledView className="w-full px-10 flex flex-col items-start justify-start">
-          <StyledTextInput
+        </Text>
+        <View className="w-full px-10 flex flex-col items-start justify-start">
+          <TextInput
             className="mt-6 w-full mx-auto pb-2 border-b-[0.5px] border-grey text-grey text-lg"
             placeholder="Username"
             style={{
@@ -90,8 +83,8 @@ export default function Login() {
             onChangeText={(text) => setUsername(text)}
             textContentType="username"
           />
-          <StyledView className="relative w-full mt-8 pb-2 border-b-[0.5px] border-grey flex-row justify-between items-center">
-            <StyledTextInput
+          <View className="relative w-full mt-8 pb-2 border-b-[0.5px] border-grey flex-row justify-between items-center">
+            <TextInput
               className="w-full mx-auto text-grey text-lg"
               placeholder="Password"
               style={{
@@ -101,7 +94,7 @@ export default function Login() {
               textContentType="password"
               secureTextEntry={!passwordVisible}
             />
-            <StyledTouchableOpacity
+            <TouchableOpacity
               onPress={() => {
                 setPasswordVisible(!passwordVisible);
               }}
@@ -112,25 +105,25 @@ export default function Login() {
               ) : (
                 <Ionicons name="eye" size={24} color="#A4A1A1" />
               )}
-            </StyledTouchableOpacity>
-          </StyledView>
-          <StyledTouchableOpacity
+            </TouchableOpacity>
+          </View>
+          <TouchableOpacity
             className="mt-8 w-full flex-row justify-start items-center mx-auto py-3 mb-3"
             onPress={login}
           >
-            <StyledText
+            <Text
               className="text-center text-grey text-2xl mr-1 mb-0.5"
               style={{
                 fontFamily: "Nunito-Sans-ExtraBold",
               }}
             >
               Sign in
-            </StyledText>
+            </Text>
             <Entypo name="arrow-right" size={28} color="#F649DA" />
-          </StyledTouchableOpacity>
-        </StyledView>
-      </StyledView>
-      <StyledView
+          </TouchableOpacity>
+        </View>
+      </View>
+      <View
         className="flex justify-center items-center bg-hotpink w-screen overflow-x-hidden -z-10"
         style={{
           flex: 1,
@@ -145,39 +138,39 @@ export default function Login() {
             top: -40,
           }}
         />
-        <StyledView className="w-full px-10 z-50 absolute bottom-10 flex flex-row justify-between items-center">
-          <StyledTouchableOpacity
+        <View className="w-full px-10 z-50 absolute bottom-10 flex flex-row justify-between items-center">
+          <TouchableOpacity
             className="flex-row justify-center items-center"
             onPress={() => {
               router.replace("forgot-password");
             }}
           >
-            <StyledText
+            <Text
               className="text-center text-white text-lg"
               style={{
                 fontFamily: "Nunito-Sans-Bold",
               }}
             >
               Forgot password
-            </StyledText>
-          </StyledTouchableOpacity>
-          <StyledTouchableOpacity
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
             className="flex-row justify-center items-center"
             onPress={() => {
               router.replace("signup");
             }}
           >
-            <StyledText
+            <Text
               className="text-center text-white text-lg"
               style={{
                 fontFamily: "Nunito-Sans-Bold",
               }}
             >
               Sign up
-            </StyledText>
-          </StyledTouchableOpacity>
-        </StyledView>
-      </StyledView>
-    </StyledView>
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </View>
   );
 }
