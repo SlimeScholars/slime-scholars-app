@@ -1,16 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  KeyboardAvoidingView,
-  Image,
-  TextInput,
-} from "react-native";
+import { View, Text, TouchableOpacity, Image, TextInput } from "react-native";
 
 import { StatusBar } from "expo-status-bar";
-import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import Storage from "@Utils/storage";
 import { Entypo, Ionicons } from "@expo/vector-icons";
