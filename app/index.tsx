@@ -31,14 +31,14 @@ export default function Login() {
 
   return (
     <View
-      className="bg-white h-screen -top-2"
+      className="bg-white h-screen"
       style={{
         flex: 1,
       }}
     >
-      <StatusBar style="light" backgroundColor="#F649DA" />
+      <StatusBar style="light" backgroundColor="#F649DA" translucent={false} />
       <View
-        className="flex justify-center items-center w-screen overflow-x-hidden"
+        className="w-screen overflow-x-hidden"
         style={{
           flex: 3,
         }}
